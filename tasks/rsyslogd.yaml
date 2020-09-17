@@ -1,0 +1,11 @@
+- name: "Install rsyslogd tuning configurations"
+  become: "true"
+  copy:
+    src: "rsyslog.d"
+    dest: "/etc"
+
+- name: "Restart rsyslogd"
+  become: "true"
+  systemd:
+    name: "rsyslog"
+    state: "restarted"
